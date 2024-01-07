@@ -32,7 +32,7 @@
                                 <span>Sign Ons</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="layouts-horizontal.html">Pending <span class="badge badge-pill badge-info float-right">03</span></a></li>
+                                <li><a href={{'pending-applications'}}>Pending <span class="badge badge-pill badge-info float-right">03</span></a></li>
                                 <li><a href="layouts-light-sidebar.html">Completed</a></li>
                             </ul>
                         </li>

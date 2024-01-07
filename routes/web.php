@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -41,6 +42,8 @@ Route::get('/treasury-bill', function () {
 // Route::post('/create-staff', [StaffController::class, 'createStaff']);
 Route::post('/create-staff', [StaffController::class, 'addMembers']);
 
+Route::post('/apply/fixed-deposit', [ApplicationController::class, 'fixedDeposit']);
+
 
 Route::get('/dynamic-page/{page}', [PageController::class, 'renderDynamicPages'])->name('dynamic.page');
 Route::get('/customers', [PageController::class, 'index'])->name('customers'); 
@@ -70,7 +73,7 @@ Route::get('/customers', [CustomerController::class, 'index'])->name( 'customers
 
 
 
-
+Route::get('pending-applications', [ApplicationController::class, 'index'])->name('pending-applications');
 
 
 Route::get('/staff', [MembersController::class, 'index'])->name('staff');

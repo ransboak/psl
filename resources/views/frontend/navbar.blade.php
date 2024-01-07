@@ -92,6 +92,9 @@
 														<a href="{{ url('/home') }}" class="nav-link">Dashboard</a>
                                                         @else
 														<a href="{{ route('login') }}" class="nav-link">Log In</a>
+														@if(Route::has('register'))
+														<a href="{{ route('register') }}" class="nav-link">Sign Up</a>
+														@endif
                                                         @endauth
 													</li>
                                                     @endif

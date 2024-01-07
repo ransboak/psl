@@ -12,7 +12,7 @@ $("#wizard").steps({
 
 $('.purpose-radio-input').on('change', function(e) {
     $('#account-type').text(e.target.value);
-});
+}); 
 
 $('#name').on('change', function(e) {
     $('#enteredName').text(e.target.value || 'Kofi Ansah');
