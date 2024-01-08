@@ -43,7 +43,7 @@ class ProductController extends Controller
 
             $application->delete();
             
-            return $fixeddeposit;
+            return redirect('/fixeddeposit');
         }elseif($investment_category == 'Treasury Bill'){
             $treasurybill = new Tbill();
             $treasurybill->name = $application->name;
@@ -72,7 +72,7 @@ class ProductController extends Controller
 
             $application->delete();
             
-            return $treasurybill;
+            return redirect('/treasurybills');
         }else{
             return redirect()->back();
         }

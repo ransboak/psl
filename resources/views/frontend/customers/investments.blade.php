@@ -13,7 +13,8 @@
                     <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                         <tr>
-                            <th>Application Id</th>
+                            <th>Investment Id</th>
+                            <th>Investment Category</th>
                             <th>Initial Investment</th>
                             <th>Interest Rate</th>
                             <th>Tenure Of Securityy</th>
@@ -25,10 +26,20 @@
                             
                         @foreach ($fixeddeposits as $fixeddeposit )
                         <tr>
-                            <td>{{$fixeddeposit->id}}</td>
+                            <td>00{{$fixeddeposit->id}}</td>
+                            <td>Fixed Deposit</td>
                             <td>{{$fixeddeposit->deposit_amnt}}</td>
                             <td>{{$fixeddeposit->interest_rate}}</td>
                             <td>{{$fixeddeposit->tenure_of_security}}</td>
+                        </tr>
+                        @endforeach
+                        @foreach ($tbills as $tbill )
+                        <tr>
+                            <td>00{{$tbill->id}}</td>
+                            <td>Treasury Bill</td>
+                            <td>{{$tbill->deposit_amnt}}</td>
+                            <td>{{$tbill->interest_rate}}</td>
+                            <td>{{$tbill->tenure_of_security}}</td>
                         </tr>
                         @endforeach
                        

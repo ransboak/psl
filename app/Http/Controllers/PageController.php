@@ -22,7 +22,7 @@ class PageController extends Controller
         $user_id = Auth::user()->id;
         $fixeddeposits = Fixeddeposit::where('user_id', $user_id)->get();
         $tbills = Tbill::where('user_id', $user_id)->get();
-        return view('frontend.customers.investments', ['fixeddeposits' => $fixeddeposits], compact('tbills'));
+        return view('frontend.customers.investments', ['fixeddeposits' => $fixeddeposits], ['tbills' => $tbills]);
     }
 
     public function fixedDeposits(){
