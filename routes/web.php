@@ -1,13 +1,16 @@
 <?php
 
-use App\Http\Controllers\ApplicationController;
-use App\Http\Controllers\CustomerController;
+use App\Models\Application;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\MembersController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ApplicationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +47,8 @@ Route::post('/create-staff', [StaffController::class, 'addMembers']);
 
 Route::post('/apply/fixed-deposit', [ApplicationController::class, 'fixedDeposit']);
 
+Route::post('/apply/treasury-bill', [ApplicationController::class, 'treasuryBill']);
+
 
 Route::get('/dynamic-page/{page}', [PageController::class, 'renderDynamicPages'])->name('dynamic.page');
 Route::get('/customers', [PageController::class, 'index'])->name('customers'); 
@@ -67,14 +72,28 @@ Route::middleware('auth')->group(function () {
 
 
 
-//CUSTOMERS
 
-Route::get('/customers', [CustomerController::class, 'index'])->name( 'customers');
+Route::middleware(['auth', 'admin'])->group(function(){
+    Route::post('/approve/{application}', [ProductController::class, 'approve'])->name('approve');
+ 
+    Route::get('/customers', [CustomerController::class, 'index'])->name( 'customers');
+
+    Route::get('pending-applications', [ApplicationController::class, 'index'])->middleware(['auth', 'admin'])->name('pending-applications');
+
+    Route::get('/fixeddeposit', [PageController::class, 'fixedDeposits'])->name('fixeddeposit');
+
+    Route::get('/treasurybills', [PageController::class, 'treasuryBills'])->name('treasurybills');
+
+    Route::get('/staff', [MembersController::class, 'index'])->name('staff');
+});
 
 
 
-Route::get('pending-applications', [ApplicationController::class, 'index'])->name('pending-applications');
+
+Route::get('/investments', [PageController::class, 'investments'])->name('investments');
+
+Route::get('/pendingApplications', [PageController::class, 'pendingApplications'])->name('pendingApplications');
 
 
-Route::get('/staff', [MembersController::class, 'index'])->name('staff');
+
 require __DIR__.'/auth.php';

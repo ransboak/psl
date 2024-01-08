@@ -49,4 +49,10 @@ class User extends Authenticatable
     public function usersApplications(){
         return $this->hasMany(Application::class, 'user_id');
     }
+    public function usersFixedDeposits(){
+        return $this->hasMany(Fixeddeposit::class, 'user_id');
+    }
+    public function usersTbills(){
+        return $this->hasMany(Tbill::class, 'user_id');
+    }
 }

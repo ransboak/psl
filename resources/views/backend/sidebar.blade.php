@@ -33,11 +33,11 @@
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href={{'pending-applications'}}>Pending <span class="badge badge-pill badge-info float-right">03</span></a></li>
-                                <li><a href="layouts-light-sidebar.html">Completed</a></li>
+                                <li><a href={{'investments'}}>Completed</a></li>
                             </ul>
                         </li>
-                        <li><a href="layouts-light-sidebar.html">Fixed Deposit</a></li>
-                        <li><a href="layouts-light-sidebar.html">Treasury Bills</a></li>
+                        <li><a href={{'fixeddeposit'}}>Fixed Deposit</a></li>
+                        <li><a href={{'treasurybills'}}>Treasury Bills</a></li>
                         <li><a href="layouts-light-sidebar.html">CIS</a></li>
                     </ul>
                 </li>

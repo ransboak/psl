@@ -35,6 +35,7 @@
     <div class="container">
         <main class="d-flex align-items-center">
             <div class="container">
+              @if(Auth::user())
                 <form action="/apply/fixed-deposit" method="POST" id="wizard">
                 @csrf
                 <h3>Step 1 Title</h3>
@@ -242,6 +243,9 @@
                   </section>
                 
                 </form>
+                @else
+                <h5 class="bd-wizard-step-title">Please Login to apply!</h5>
+                @endif
             </div>
           </main>
 

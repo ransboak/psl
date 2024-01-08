@@ -1,47 +1,54 @@
+<head>
+        
+    <meta charset="utf-8" />
+    <title>Data Tables | Skote - Responsive Bootstrap 4 Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">>
+    <!-- App favicon -->
+
+    <!-- DataTables -->
+    <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Responsive datatable examples -->
+    <link href="assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />     
+
+    <!-- Bootstrap Css -->
+    <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+
+</head>
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
-        </div>
-        <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-            <thead>
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Telephone</th>
-                
-            </tr>
-            </thead>
-
-            <tbody>
-
-                
-            @foreach ($applications as $application )
-            <tr>
-                <td>{{$application->user_id}}</td>
-                <td>{{$application->name}}</td>
-                <td>{{$application->mobile_number}}</td>
-                <td>{{$application->account_number}}</td>
-                
-               
-            </tr>
-            @endforeach
-           
-
-            
-           
-            </tbody>
-        </table>
-    </div>
+    @yield('content');
 </x-app-layout>
+
+ <!-- JAVASCRIPT -->
+ <script src="assets/libs/jquery/jquery.min.js"></script>
+ <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+ <script src="assets/libs/metismenu/metisMenu.min.js"></script>
+ <script src="assets/libs/simplebar/simplebar.min.js"></script>
+ <script src="assets/libs/node-waves/waves.min.js"></script>
+
+ <!-- Required datatable js -->
+ <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+ <script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+ <!-- Buttons examples -->
+ <script src="assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+ <script src="assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+ <script src="assets/libs/jszip/jszip.min.js"></script>
+ <script src="assets/libs/pdfmake/build/pdfmake.min.js"></script>
+ <script src="assets/libs/pdfmake/build/vfs_fonts.js"></script>
+ <script src="assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+ <script src="assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+ <script src="assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+ 
+ <!-- Responsive examples -->
+ <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+ <script src="assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
+ <!-- Datatable init js -->
+ <script src="assets/js/pages/datatables.init.js"></script>    
+
+ <script src="assets/js/app.js"></script>

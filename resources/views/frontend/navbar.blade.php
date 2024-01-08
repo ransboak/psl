@@ -118,7 +118,7 @@
 												<a href={{'fixed-deposit'}} class="nav-link">Fixed Deposit</a>
 											</li>
 											<li class="nav-item">
-												<a href="{{'treasury-bill'}}" class="nav-link">Treasury Bill</a>
+												<a href={{'treasury-bill'}} class="nav-link">Treasury Bill</a>
 											</li>
 											<li class="nav-item">
 												<a href="service-style-one.html" class="nav-link">CIS</a>

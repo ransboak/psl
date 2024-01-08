@@ -1,111 +1,3 @@
-{{-- @extends('frontend.main')
-@section('welcome');
-
-<!-- Start Page Title Area -->
-<div class="page-title-area">
-    <div class="container">
-        <div class="page-title-content">
-            <h2>Apply Now</h2>
-            <ul>
-                <li>
-                    <a href="index.html">
-                        Home 
-                    </a>
-                </li>
-                <li>Pages</li>
-                <li>User</li>
-                <li>Treasury Bill</li>
-            </ul>
-        </div>
-    </div>
-</div>
-<!-- End Page Title Area -->
-
-<!-- Start Sign Up Area -->
-<section class="user-area-all-style sign-up-area ptb-100">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="contact-form-action">
-                    <div class="form-heading text-center">
-                        <h3 class="form-title">Apply Now!</h3>
-                        <p class="form-desc">With your social network.</p>
-                    </div>
-                    <form method="post">
-                        <div class="row">
-                            
-                            <div class="col-md-12 col-sm-12">
-                                <div class="form-group">
-                                    <input class="form-control" type="text" name="name" placeholder="First Name">
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-sm-12 ">
-                                <div class="form-group">
-                                    <input class="form-control" type="text" name="name" placeholder="Last Name">
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-sm-12">
-                                <div class="form-group">
-                                    <input class="form-control" type="text" name="name" placeholder="Enter your username">
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-sm-12">
-                                <div class="form-group">
-                                    <input class="form-control" type="email" name="email" placeholder="Email Address">
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-sm-12">
-                                <div class="form-group">
-                                    <input class="form-control" type="text" name="password" placeholder="Password">
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-sm-12 ">
-                                <div class="form-group">
-                                    <input class="form-control" type="text" name="password" placeholder="Confirm Password">
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-xs-12 form-condition">
-                                <div class="agree-label">
-                                    <input type="checkbox" id="chb1">
-                                    <label for="chb1">
-                                        I agree with Prudential Securities Limited's
-                                        <a href="sign-up.html#">Privacy Policy</a>
-                                    </label>
-                                </div>
-                                <div class="agree-label">
-                                    <input type="checkbox" id="chb2">
-                                    <label for="chb2">
-                                        I agree with Prudential Securities Limited's
-                                        <a href="sign-up.html#">Terms of Services</a>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <button class="default-btn btn-two" type="submit">
-                                    Register Account
-                                    <i class="flaticon-right"></i>
-                                </button>
-                            </div>
-                            <div class="col-12">
-                                <p class="account-desc">
-                                    Already have an account?
-                                    <a href="log-in.html"> Login</a>
-                                </p>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Sign Up Area -->
-@endsection --}}
-
-
-
-
-
 @extends('frontend.main')
 @section('welcome');
 <head>
@@ -131,7 +23,7 @@
                 </li>
                 <li>Pages</li>
                 <li>User</li>
-                <li>Fixed Deposit</li>
+                <li>Treasury Bill</li>
             </ul>
         </div>
     </div>
@@ -143,15 +35,16 @@
     <div class="container">
         <main class="d-flex align-items-center">
             <div class="container">
-                <div id="wizard">
-                  <h3>Step 1 Title</h3>
+                <form action="/apply/treasury-bill" method="POST" id="wizard">
+                @csrf
+                <h3>Step 1 Title</h3>
                   <section>
                    <h5 class="bd-wizard-step-title">Step 1</h5>
                    <h2 class="section-heading">Select Account type </h2>
                    <p>Which Account type do you hold?</p>
                    <div class="purpose-radios-wrapper">
                       <div class="purpose-radio">
-                          <input type="radio" name="purpose" id="branding" class="purpose-radio-input" value="Single" checked>
+                          <input type="radio" name="account_type" id="branding" class="purpose-radio-input" value="Single" checked>
                          <label for="branding" class="purpose-radio-label">
                            <span class="label-icon">
                              <img src="assets2/images/icon_branding.svg" alt="branding" class="label-icon-default">
@@ -161,7 +54,7 @@
                          </label>
                         </div>
                         <div class="purpose-radio">
-                           <input type="radio" name="purpose" id="joint" class="purpose-radio-input" value="Joint">
+                           <input type="radio" name="account_type" id="joint" class="purpose-radio-input" value="Joint">
                           <label for="joint" class="purpose-radio-label">
                             <span class="label-icon">
                               <img src="assets2/images/icon_mobile_design.svg" alt="branding" class="label-icon-default">
@@ -171,7 +64,7 @@
                           </label>
                          </div>
                          <div class="purpose-radio">
-                             <input type="radio" name="purpose" id="itf" class="purpose-radio-input" value="ITF">
+                             <input type="radio" name="account_type" id="itf" class="purpose-radio-input" value="ITF">
                             <label for="itf" class="purpose-radio-label">
                               <span class="label-icon">
                                 <img src="assets2/images/icon_web_design.svg" alt="branding" class="label-icon-default">
@@ -180,12 +73,31 @@
                               <span class="label-text">ITF</span>
                             </label>
                            </div>
+                         <div class="purpose-radio">
+                             <input type="radio" name="account_type" id="corporate" class="purpose-radio-input" value="Corporate">
+                            <label for="corporate" class="purpose-radio-label">
+                              <span class="label-icon">
+                                <img src="assets2/images/icon_web_design.svg" alt="branding" class="label-icon-default">
+                                <img src="assets2/images/icon_web_design_green.svg" alt="branding" class="label-icon-active">
+                              </span>
+                              <span class="label-text">Corporate</span>
+                            </label>
+                           </div>
+                           {{-- <div class="form-group">
+                            <label for="investor_account_number" class="sr-only">Investor Account Number</label>
+                            <input id="id_number" name="id_number" type="text" class="form-control" placeholder="ID NUmber">
+                          </div> --}}
+                          <div class="form-group">
+                            <label for="date" class="sr-only">Date</label>
+                            <input class="form-control" type="date" id="date" name="date" placeholder="Date Of Application">
+                          </div>
                    </div>
                   </section>
                   <h3>Step 2 Title</h3>
                   <section>
                     <h5 class="bd-wizard-step-title">Step 2</h5>
                     <h2 class="section-heading">Customer Details</h2>
+                    <input type="hidden" name="investment_category" id="investment_category" class="form-control" value="Treasury Bill">
                     <div class="form-group">
                       <label for="name" class="sr-only">Name Of Customer</label>
                       <input type="text" name="name" id="name" class="form-control" placeholder="Name">
@@ -207,7 +119,7 @@
                     </div>
                     <div class="form-group">
                       <label for="address" class="sr-only">Address</label>
-                      <textarea class="form-control" rows="5" id="address" placeholder="Address" required></textarea>
+                      <textarea class="form-control" rows="5" id="address" placeholder="Address" required name="address"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="mobile_number" class="sr-only">Mobile Number</label>
@@ -232,7 +144,7 @@
                         <option value="">--Please Select--</option>
                         <option value="transfer">Transfer</option>
                         <option value="cash">Cash</option>
-                        <option value="cheque">Transfer</option>
+                        <option value="cheque">Cheque</option>
                         <option value="other">Other</option>
                     </select>
                     </div>
@@ -268,7 +180,7 @@
                       </div>
                       <div class="form-group">
                         <label for="other_instruction" class="sr-only">Any Other Instruction</label>
-                        <textarea class="form-control" rows="5" id="other_instruction" placeholder="Any Other Instruction" required></textarea>
+                        <textarea class="form-control" rows="5" id="other_instruction" name="other_instruction" placeholder="Any Other Instruction" required></textarea>
                       </div>
                   </section>
                   <h3>Step 5 Title</h3>
@@ -280,7 +192,7 @@
                       <input type="text" name="bank_name" id="bank_name" class="form-control" placeholder="Name Of Bank">
                     </div>
                     <div class="form-group">
-                      <label for="bank_branch" class="sr-only">Name Of Bank</label>
+                      <label for="bank_branch" class="sr-only">Bank Branch</label>
                       <input type="text" name="bank_branch" id="bank_branch" class="form-control" placeholder="Bank Branch">
                     </div>
                     <div class="form-group">
@@ -296,32 +208,46 @@
                   <section>
                       <h5 class="bd-wizard-step-title">Step 3</h5>
                       <h2 class="section-heading mb-5">Review your Details and Submit</h2>
+                      <h5 class="section-heading mb-5">Treasury Bill</h5>
                       <h6 class="font-weight-bold">Select Account type</h6>
-                      <p class="mb-4" id="account-type">Single</p>
+                      <p class="mb-4" id="account-type"></p>
                       <h6 class="font-weight-bold">Customer Details</h6>
-                      <p class="mb-4"><span id="enteredName">Kwame Ofori</span> <br>
-                          ID Type: <span id="enteredIdType">+230-582-6609</span> <br>
-                          ID Number: <span id="enteredIdNumber">GHA-563427635-0</span></p>
-                          Issue Date: <span id="enteredIssueDate">12/04/32</span></p>
-                          Address: <span id="enteredAddress">Address</span></p>
-                          Mobile Number: <span id="enteredMobileNumber">+233-582-6609</span></p>
-                          Email: <span id="enteredEmailAddress">+233-582-6609</span></p>
-                          Amount Invested / Deposit: <span id="enteredDepositAmnt">+233-582-6609</span></p>
-                          Mode of Deposit: <span id="enteredModeOfDeposit">+233-582-6609</span></p>
-                          Tenure Of Security: <span id="enteredTenureOfSecurity">+233-582-6609</span></p>
-                          Interest Rate: <span id="enteredInterestRate">+233-582-6609</span></p>
-                          Disposal Instruction Upon Maturity: <span id="enteredDisposalInstruction">+233-582-6609</span></p>
-                          Any Other Instruction: <span id="enteredOtherInstruction">+233-582-6609</span></p>
+                      <p class="mb-4"><span id="enteredName"></span> <br>
+                          {{-- ID Type: <span id="enteredIdType"></span> <br> --}}
+                           ID Number: <span id="enteredIdNumber"></span></p>
+                          Issue Date: <span id="enteredIssueDate"></span></p>
+                          Address: <span id="enteredAddress"></span></p>
+                          Mobile Number: <span id="enteredMobileNumber"></span></p>
+                          Email: <span id="enteredEmailAddress"></span></p>
+                          Amount Invested / Deposit: <span id="enteredDepositAmnt"></span></p>
+                          {{-- Mode of Deposit: <span id="enteredModeOfDeposit"></span></p> --}}
+                          {{-- Tenure Of Security: <span id="enteredTenureOfSecurity"></span></p> --}}
+                          Interest Rate: <span id="enteredInterestRate"></span></p>
+                          {{-- Disposal Instruction Upon Maturity: <span id="enteredDisposalInstruction"></span></p> --}}
+                          Any Other Instruction: <span id="enteredOtherInstruction"></span></p>
                       <h6 class="font-weight-bold">Client's Bank Account</h6>
                         Name Of Bank: <span id="enteredBankName"></span></p>
                         Bank Branch: <span id="enteredBankBranch"></span></p>
                         Account Name: <span id="enteredAccountName"></span></p>
-                        Account No: <span id="enteredAccountNumber">+233-582-6609</span></p>
+                        Account No: <span id="enteredAccountNumber"></span></p>
+                        <div class="col-md-12 col-sm-12 col-xs-12 form-condition">
+                            <div class="agree-label">
+                                <input type="checkbox" id="chb1" required>
+                                <label for="chb1">
+                                    I agree with Prudential Securities Limited's Privacy Policy
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success">Submit</button>
                   </section>
-                </div>
+                
+                </form>
             </div>
           </main>
-     
+
+            </div>
+
+
     </div>
 </section>
 <!-- End Sign Up Area -->
