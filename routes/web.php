@@ -82,7 +82,7 @@ Route::middleware(['auth', 'admin'])->group(function(){
 
     Route::get('/fixeddeposit', [PageController::class, 'fixedDeposits'])->name('fixeddeposit');
 
-    Route::get('/treasurybills', [PageController::class, 'treasuryBills'])->name('treasurybills');
+    Route::get('/treasurybills', [PageController::class, 'tBills'])->name('treasurybills');
 
     Route::get('/staff', [MembersController::class, 'index'])->name('staff');
 });

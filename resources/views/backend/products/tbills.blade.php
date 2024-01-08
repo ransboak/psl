@@ -50,8 +50,8 @@
                                             <tr>
                                                 <td>{{$tbill->name}}</td>
                                                 <td>{{$tbill->deposit_amnt}}</td>
-                                                <td>00{{$tbill->interest_rate}}</td>
-                                                <td>00{{$tbill->tenure_of_security}}</td>
+                                                <td>{{$tbill->interest_rate}}</td>
+                                                <td>{{$tbill->tenure_of_security}}</td>
                                                 <td>{{$tbill->mobile_number}}</td>
                                                 
                                                

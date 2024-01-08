@@ -50,8 +50,8 @@
                                             <tr>
                                                 <td>{{$fixeddeposit->name}}</td>
                                                 <td>{{$fixeddeposit->deposit_amnt}}</td>
-                                                <td>00{{$fixeddeposit->interest_rate}}</td>
-                                                <td>00{{$fixeddeposit->tenure_of_security}}</td>
+                                                <td>{{$fixeddeposit->interest_rate}}</td>
+                                                <td>{{$fixeddeposit->tenure_of_security}}</td>
                                                 <td>{{$fixeddeposit->mobile_number}}</td>
                                                 
                                                
