@@ -51,6 +51,7 @@
                     </a>
                 </li>
 
+                @if (Auth::user()->role=="admin")
                 <li>
                     <a href={{'staff'}} class=" waves-effect">
                         <i class="bx bx-chat" ></i>
@@ -58,6 +59,8 @@
                         <span>Staff</span>
                     </a>
                 </li>
+                @endif
+                
             
 
             </ul>

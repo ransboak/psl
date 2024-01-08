@@ -23,7 +23,7 @@ class HomeController extends Controller
                 $applications = Application::where('user_id', $user_id)->get();
                 return view('dashboard', ['applications' => $applications]);
             }
-            else if($userrole=='admin'){
+            else if($userrole=='admin' || $userrole=='staff'){
                 return view('backend.main', compact('users'));
             }
             else{

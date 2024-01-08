@@ -43,7 +43,7 @@ Route::get('/treasury-bill', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 // Route::post('/create-staff', [StaffController::class, 'createStaff']);
-Route::post('/create-staff', [StaffController::class, 'addMembers']);
+
 
 Route::post('/apply/fixed-deposit', [ApplicationController::class, 'fixedDeposit']);
 
@@ -71,18 +71,32 @@ Route::middleware('auth')->group(function () {
 });
 
 
+//Customer Only
+Route::middleware(['auth', 'customer'])->group(function(){
+    Route::get('/investments', [PageController::class, 'investments'])->name('investments');
+
+    Route::get('/pendingApplications', [PageController::class, 'pendingApplications'])->name('pendingApplications');
+});
 
 
-Route::middleware(['auth', 'admin'])->group(function(){
+//Admin and Staff
+Route::middleware(['auth', 'admin_staff'])->group(function(){
+
     Route::post('/approve/{application}', [ProductController::class, 'approve'])->name('approve');
- 
+
     Route::get('/customers', [CustomerController::class, 'index'])->name( 'customers');
 
-    Route::get('pending-applications', [ApplicationController::class, 'index'])->middleware(['auth', 'admin'])->name('pending-applications');
+    Route::get('pending-applications', [ApplicationController::class, 'index'])->name('pending-applications');
 
     Route::get('/fixeddeposit', [PageController::class, 'fixedDeposits'])->name('fixeddeposit');
 
     Route::get('/treasurybills', [PageController::class, 'tBills'])->name('treasurybills');
+});
+
+
+//Admin Only
+Route::middleware(['auth', 'admin'])->group(function(){  
+    Route::post('/create-staff', [StaffController::class, 'addMembers']); 
 
     Route::get('/staff', [MembersController::class, 'index'])->name('staff');
 });
@@ -90,9 +104,7 @@ Route::middleware(['auth', 'admin'])->group(function(){
 
 
 
-Route::get('/investments', [PageController::class, 'investments'])->name('investments');
 
-Route::get('/pendingApplications', [PageController::class, 'pendingApplications'])->name('pendingApplications');
 
 
 
