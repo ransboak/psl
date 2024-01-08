@@ -38,7 +38,7 @@
                         </li>
                         <li><a href={{'fixeddeposit'}}>Fixed Deposit</a></li>
                         <li><a href={{'treasurybills'}}>Treasury Bills</a></li>
-                        <li><a href="layouts-light-sidebar.html">CIS</a></li>
+                        <li><a href="">CIS</a></li>
                     </ul>
                 </li>
 
